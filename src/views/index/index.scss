@@ -1,0 +1,112 @@
+@page {
+  size: letter;
+}
+
+$bg-color: #2e2e2e;
+$text-color: #aeaeae;
+$link-color: #3e8eec;
+
+a[href] {
+  color: #{$link-color};
+}
+
+body {
+  margin: 0;
+}
+
+article {
+  color: #{$text-color};
+  outline: 1px solid #{$text-color};
+  background: #{$bg-color};
+
+  width: 816px;
+  height: 1056px;
+  overflow: none;
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-flow: column;
+  font-size: 14px;
+
+  padding: 1rem;
+
+  & > main {
+    & > section {
+      & > h2 {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+      }
+      & > .section-items {
+        margin-left: .5rem;
+        & > .section-item {
+          &:not(:first-child) {
+            margin-top: .2rem;
+            padding-top: .2rem;
+            border-top: 1px solid #{$text-color};
+          }
+        }
+      }
+    }
+    .work {
+      & .section-item {
+        &:nth-child(n + 4) > .details {
+          display: none;
+        }
+        &:nth-child(-n + 4) > .details {
+          margin-left: 1rem;
+          & > p {
+            margin-top: .25rem;
+            margin-bottom: .25rem;
+          }
+        }
+      }
+    }
+    .projects-and-open-source {
+      & .whats {
+        margin-left: 1rem;
+        & > p {
+          margin-top: .25rem;
+          margin-bottom: .25rem;
+          > * {
+            margin-right: .25rem;
+          }
+        }
+      }
+    }
+    .education {
+      display: flex;
+      & > .section-items {
+        align-self: center;
+      }
+    }
+    .skills {
+      display: flex;
+      & .section-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        & > * {
+          margin-right: 1rem;
+
+        }
+      }
+    }
+  }
+}
+
+.spiel {
+  font-size:15px;
+  &> *:not(:last-child):not(.no-sep)::after {
+    content: ' |';
+    padding-right: .2rem;
+    font-weight: normal;
+  }
+  &> .no-sep {
+    padding-right: .2rem;
+  }
+}
+
+.employer {
+  border: 1px solid #{$text-color};
+};
+

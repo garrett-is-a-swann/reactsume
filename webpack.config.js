@@ -18,6 +18,10 @@ module.exports = (env) => {
                     }
                 },
                 {
+                    test: /\.s?css$/,
+                    use: ["style-loader", "css-loader", 'sass-loader'],
+                },
+                {
                     test: /\.png$/,
                     loader: 'file-loader'
                 }
@@ -38,6 +42,7 @@ module.exports = (env) => {
                 '.' + HOST_NAME,
             ].filter(host => host != undefined),
             historyApiFallback: true,
+            static: path.join(__dirname, 'dist'),
         },
         plugins: [
             new HtmlWebpackPlugin({

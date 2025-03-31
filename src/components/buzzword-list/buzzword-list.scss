@@ -1,0 +1,9 @@
+$bg-color: #2e2e2e;
+$text-color: #aeaeae;
+
+.buzzwords {
+    border-top: 1px dashed #{$text-color};
+    & > span.sep {
+        padding: .2rem;
+    }
+}
